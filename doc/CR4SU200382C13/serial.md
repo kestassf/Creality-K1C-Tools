@@ -52,3 +52,9 @@ Starting kernel ...
 [    0.000000] CPU0 RESET ERROR PC:8E11A37F
 [    0.000000] printk: bootconsole [early0] enabled
 ...
+
+Welcome to creality
+K1C-XXXX login:
+```
+
+NOTE: any key pressed before login apears leads to kernel crash and authomatic reboot.
