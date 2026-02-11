@@ -12,7 +12,7 @@ There are blue and black boards, both marked "V13".
 
 * Ingenic XBurst2 X2600E SoC
 * 256MB DDR3
-* 3.3V UART on GND/RX2/TX2 header, 3Mbps 8bit, parity none, 1 stop bit, lsb-fist
+* [3.3V UART on GND/RX2/TX2 header, 3Mbps 8bit, parity none, 1 stop bit, lsb-fist](serial.md)
 * USB-C (shared with USB0) 
 * WiFi (aic8800dc)
 
@@ -138,7 +138,7 @@ Current status: `ss -nap`
 IPtables rules: `iptables-save` 
   - `-A PREROUTING -p tcp -m tcp --dport 80 -j REDIRECT --to-ports 8081` - forwards 80/tcp to `vectorpp`
 
-`Live traffic: `tcpdump -n` (or `tcpdump -n not port 22` to filter-out ssh traffic)
+Live traffic: `tcpdump -n` (or `tcpdump -n not port 22` to filter-out ssh traffic)`
 
 # References
 
