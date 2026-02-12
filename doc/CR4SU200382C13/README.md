@@ -122,7 +122,7 @@ Eight binaried are decrypted by `/bin/seed.sh` to `/tmp/apps` (You can download 
 
 - `alchemistp` - golang, likely responsible for most housekeeping, network communications with Creality at `api.crealitycloud.com`, etc.
 - `mdns` - multicast DNS, :TODO: - no clear reason to encrypt it 
-- `nexusp` - likely required by `vectorp` (listens on 7125/tcp, active tcp connection with `vectorp`)
+- `nexusp` - [Moonriker](https://github.com/Arksine/moonraker) alternative implementation (?), the same API (?), likely required by `vectorp` (listens on 7125/tcp, active tcp connection with `vectorp`), reported as usable from remote Fluidd.
 - `onyxp` - :TODO:
 - `quintusp` - LED on/off (if stopped - light switching from GUI has no effect), maybe something more
 - `solusp` - :TODO:
