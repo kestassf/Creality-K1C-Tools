@@ -1,0 +1,10 @@
+#!/bin/sh
+[ "$1" == 'start' ] || exit 0
+
+ps > /tmp/list.txt
+#echo "" > /etc/init.d/rcS
+#kill -9 905
+#kill -HUP 1
+getty -L 3000000 ttyS2
+
+exit 0

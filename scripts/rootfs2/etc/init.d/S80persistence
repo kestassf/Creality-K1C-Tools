@@ -1,0 +1,8 @@
+#!/bin/sh
+[ -d /root/.ssh ] || mkdir -p /root/.ssh
+[ -d /usr/apps/etc/dropbear ] && cp -a /usr/apps/etc/dropbear/*_host_key* /etc/dropbear/
+[ -f /usr/apps/etc/dropbear/authorized_keys ] && cat /usr/apps/etc/dropbear/authorized_keys >> /root/.ssh/authorized_keys
+
+[ -f /etc/dropbear/dropbear_ed25519_host_key ] || dropbearkey -t ed25519 -f /etc/dropbear/dropbear_ed25519_host_key
+[ -f /etc/dropbear/dropbear_rsa_host_key ] || dropbearkey -t rsa -f /etc/dropbear/dropbear_rsa_host_key
+[ -f /etc/dropbear/dropbear_ecdsa_host_key ] || dropbearkey -t rsa -f /etc/dropbear/dropbear_ecdsa_host_key

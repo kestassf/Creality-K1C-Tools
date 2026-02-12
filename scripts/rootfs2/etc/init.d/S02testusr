@@ -1,0 +1,12 @@
+#!/bin/sh
+[ "$1" == 'start' ] || exit 0
+
+# passw: test
+echo 'testusr:x:1002:1002:user:/tmp/testusr:/bin/sh' >> /etc/passwd
+echo 'testusr:$1$QbganSLj$tb3bo5acCMJVKa.np0NsC1:20493::::::' >> /tmp/shadow
+echo 'testusr:x:1002:' >> /etc/group
+mkdir /tmp/testusr
+chown testusr:testusr /tmp/testusr
+sed -i 's/^wheel:.*$/&,testusr/' /etc/group
+#chmod a+rw /dev/sc
+exit 0

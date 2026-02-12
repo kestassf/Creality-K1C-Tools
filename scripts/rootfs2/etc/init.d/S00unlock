@@ -1,0 +1,14 @@
+#!/bin/sh
+[ "$1" == 'start' ] || exit 0
+
+sed -i 's/^!//' /tmp/shadow
+passwd creality << EOF
+k1c-2025
+k1c-2025
+EOF
+passwd root << EOF
+k1c-2025
+k1c-2025
+EOF
+
+exit 0

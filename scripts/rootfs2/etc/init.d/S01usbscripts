@@ -1,0 +1,22 @@
+#!/bin/sh
+[ "$1" == 'start' ] || exit 0
+
+[ -d /media/creality/sda1/init.d ] && sleep 5
+
+for i in /media/creality/sda1/init.d/XS??*; do
+        [ ! -f "$i" ] && continue
+
+        case "$i" in
+        *.sh)
+            trap - INT QUIT TSTP
+            set start
+            . $i
+            ;;
+        *)
+            $i start
+            ;;
+        esac
+    done                     
+
+
+exit 0

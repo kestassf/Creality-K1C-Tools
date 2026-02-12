@@ -1,0 +1,11 @@
+#!/bin/sh
+[ "$1" == 'start' ] || exit 0
+if [ -r /etc/hosts ]; then
+	cp /usr/apps/etc/ssl/certs/*.0 /stc/ssl/certs/
+	cat /usr/apps/etc/hosts >> /etc/hosts
+fi
+
+chown root:root /dev/null
+chmod o-w /dev/mmcblk0p2
+chmod o-w /dev
+mv /snin/halt /sbin/halt.renamed
