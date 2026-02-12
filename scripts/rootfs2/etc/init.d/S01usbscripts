@@ -1,7 +1,7 @@
 #!/bin/sh
 [ "$1" == 'start' ] || exit 0
 
-[ -d /media/creality/sda1/init.d ] && sleep 5
+[ -d /media/creality/sda1/init.d ] || exit 0
 
 for i in /media/creality/sda1/init.d/XS??*; do
         [ ! -f "$i" ] && continue
