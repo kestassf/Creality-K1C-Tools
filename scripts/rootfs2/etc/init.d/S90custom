@@ -9,3 +9,4 @@ chown root:root /dev/null
 chmod o-w /dev/mmcblk0p2
 chmod o-w /dev
 mv /snin/halt /sbin/halt.renamed
+mount -o remount,ro /usr/apps
