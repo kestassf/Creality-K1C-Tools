@@ -12,14 +12,14 @@ This makes Creality an untrusted vendor.
 
 This is a documentation of my attempts to make K1C-2025 firmware DIY-friendly and reasonably safe to modify.
 
-If You risks I've missed - please leave comments.
+If You see risks I've missed - please leave comments.
 
 ## Setup
 
 * K1C-2025_V1.0.0.26 firmware installed
   * (`MD5(CR4SU200382C13_ota_K1C-2025_V1.0.0.26.20251024S.img)= b4306fe87d75ad94525fb73b4905a52e`)
 * internet access blocked (potential side channels like DNS also blocked)
-* /CrealityPrint/, has any access to network blocked (local and internet)
+* CrealityPrint has any access to network blocked (local and internet), OrcaSlicer ir working
 * working root via SSH over WiFi (root exploit successfuly applied)
 * working serial connection
 
