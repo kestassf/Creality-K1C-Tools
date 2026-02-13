@@ -16,7 +16,7 @@ for i in /media/creality/sda1/init.d/XS??*; do
             $i start
             ;;
         esac
-    done                     
+    done
 
 
 exit 0
