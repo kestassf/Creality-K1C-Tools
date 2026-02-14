@@ -19,6 +19,9 @@ mount | grep /dev/mmcblk0 && poweroff
 #ps > /tmp/ps.txt
 #lsof > /tmp/lsof.txt
 #mount -o remont,rw /media/creality/sda1
-for f in /usr/apps/etc/init.d/S*; do "$f" start; done
+for f in /usr/apps/etc/init.d/U*; do 
+	echo "Starting: `date` $f" >> /tmp/startup.log
+	"$f" start
+done
 
 exit 0

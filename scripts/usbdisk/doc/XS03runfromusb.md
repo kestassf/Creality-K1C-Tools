@@ -63,7 +63,7 @@ The script:
 - mounts `sda2` ext4 partition
 - replaces MMC partitions mounts with bind-mount from sda2 (unmounts MMC, bind-mounts folders)
 - halts the system if there is still any MMC partition mounted (extra safety measyre)
-- runs `/usr/apps/etc/init.d/S*` scripts
+- runs `/usr/apps/etc/init.d/U*` scripts
 
 The script intentionally does not start `creality` services from `/usr/apps/etc/init.d/CS*`.
 
@@ -74,7 +74,8 @@ Highly advised to have `S00unlock` working properly.
 The script requires `S02usbscripts` to be run from `/tmp` (handled by `/usr/appsw/etc/init.d/S01release_rootfs2`
 and symlink `/usr/appsw/etc/init.d/S02usbscripts). Othervise `/usr/apps` is used by script itself and unmounting fails.
 
-Any scripts on MMC after `S02usbscripts` are not started, even if the same named files are present on USB (TODO: why?).
+`/bin/seed.sh` expands the list `/usr/apps/etc/init.d/S*` before remounting is done, so if lists in MMC and USB `init.d`
+are different, only names which were present in MMC will be run by `seed.sh` authomatically.
 
 # Expectet result
 
