@@ -5,58 +5,27 @@
 
 Partiton and format USB
 * /dev/sda1 - vfat
-* /dev/sda2 - ext4
+* /dev/sda2 - ext4 for deplibs
+* /dev/sda3 - ext4 for apps
+* /dev/sda4 - ext4 for data
 
 Mount `sda1` create `init.d` and copy `XS03runfromusb` to `./init.d/XS03runfromusb`
 
-Mount `sda2` and copy content of squashfs and ext4 partitions there (either use OTA-Parser,
+Mount `sda2,3,4` and copy content of squashfs and ext4 partitions there (either use OTA-Parser,
 MMC dump, or live filesystem as a source):
-* squashfs -> `deplibs`
-* rootfs2 -> apps
-* userdata -> data
+* squashfs -> `sda2/`
+* rootfs2 -> `sda3/`
+* userdata -> `sda4/`
 
-You should get the following filesystem:
-
-```
-[root@ /mnt/sda2] # find . -maxdepth 2
-.
-./deplibs
-./deplibs/lib
-./deplibs/html
-./deplibs/edl-v10
-./deplibs/CONTRIBUTING.md
-./deplibs/etc
-./deplibs/bin
-./deplibs/lib32
-./deplibs/epl-v10
-./deplibs/sbin
-./deplibs/libexec
-./deplibs/notice.html
-./deplibs/README.md
-./deplibs/share
-./deplibs/LICENSE
-./apps
-./apps/usr
-./apps/lib
-./apps/var
-./apps/etc
-./apps/tmp
-./apps/module_driver
-./apps/lost+found
-./data
-./data/core
-./data/wpa_supplicant.conf
-./data/macaddr.txt
-./data/owner
-./data/old
-./data/printer_data
-./data/creality
-./lost+found
-```
+NOTE: Creality binaries have hardcoded path `/media/sreality` so missbehave if there are active
+partitions mounted there (`nexusp` is trying to index files, load goes up.). 
 
 Adjust as You see fit.
 
 Advised to copy `S04harden` to `sda2/etc/init.d` for extra safety.
+
+Initially `init.d/CS*` scripts should be moved out to prevent their startup, so You can check manually and enable
+once everything is ok.
 
 The script:
 - removes `/dev/sd*` related configuration from `mdev` to prevent in interfering later.

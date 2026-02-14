@@ -5,14 +5,15 @@
 
 sed -i '/^sd/d' /etc/mdev.conf
 /etc/init.d/S10mdev restart
-mount -o rw,noatime,nodev /dev/sda2 /media/creality/sda2
+
 umount /usr/deplibs
-mount -o bind /media/creality/sda2/deplibs /usr/deplibs
-umount /usr/data
-mount -o bind /media/creality/sda2/data /usr/data
+mount -o rw,noatime,nodev /dev/sda2 /usr/deplibs
 
 umount /usr/apps
-mount -o bind /media/creality/sda2/apps /usr/apps
+mount -o rw,noatime,nodev /dev/sda3 /usr/apps
+
+umount /usr/data
+mount -o rw,noatime,nodev /dev/sda4 /usr/data
 
 mount | grep /dev/mmcblk0 && poweroff
 
