@@ -40,3 +40,4 @@ In case of trouble (as long as boot successfuly gets to `S00unlock` and `S01usbs
 USB disk, attach it and get them executed by `S01usbscripts`. Sample scripts:
 
 * [`XS02break`](usbdisk/init.d/XS02break) - stop boot, allow login as `root` or `creality` login.
+* [`XS03runfromusb`](usbdisk/init.d/XS03runfromusb) - unmount MMC partitions and run from USB, [more info](usbdisk/init.d/XS03runfromusb.md)
