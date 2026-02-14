@@ -72,7 +72,7 @@ The script intentionally does not start `creality` services from `/usr/apps/etc/
 Highly advised to have `S00unlock` working properly.
 
 The script requires `S02usbscripts` to be run from `/tmp` (handled by `/usr/appsw/etc/init.d/S01release_rootfs2`
-and symlink `/usr/appsw/etc/init.d/S02usbscripts). Othervise `/usr/apps` is used by script itself and unmounting fails.
+and symlink `/usr/apps/etc/init.d/S02usbscripts`). Othervise `/usr/apps` is used by script itself and unmounting fails.
 
 `/bin/seed.sh` expands the list `/usr/apps/etc/init.d/S*` before remounting is done, so if lists in MMC and USB `init.d`
 are different, only names which were present in MMC will be run by `seed.sh` authomatically.
