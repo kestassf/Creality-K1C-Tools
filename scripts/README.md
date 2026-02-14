@@ -29,14 +29,14 @@ Idea: get a shell prompt on boot as early as possibble. `/usr/apps/etc/init.d/S*
 location suitable for modification.
 
 * [`S00unlock`](rootfs2/etc/init.d/S00unlock) - unlock `root` and `creality` accounts, reset password to a known value.
-* [`S01usbscripts`](rootfs2/etc/init.d/S01usbscripts) - run scripts from USB, if it is present on boot.
-* [`S02testusr`](rootfs2/etc/init.d/S02testusr) - create one more unprivileged user with a known password.
+* [`S02usbscripts`](rootfs2/etc/S02usbscripts) - run scripts from USB, if it is present on boot (copied to `/tmp` by `S01relese_rootfs`, started by symlink)
+* [`S04harden`](rootfs2/etc/init.d/S04harden) - apply more restrinctive permissions
+* [`S04testusr`](rootfs2/etc/init.d/S04testusr) - create one more unprivileged user with a known password.
 * [`S80persistence`](rootfs2/etc/init.d/S80persistence) - slightly modified root-exploit's script to prevent server
 ssh key changeing on every boot.
-* [`S90custom`](rootfs2/etc/init.d/S90custom) - any remaining changes (make system more resistant to changes by
-untrusted users, install fake SSL CA).
+* [`S90custom`](rootfs2/etc/init.d/S90custom) - any remaining changes (install fake SSL CA, etc...).
 
-In case of trouble (as long as boot successfuly gets to `S00unlock` and `S01usbscripts`) You can put extra scripts to
+In case of trouble (as long as boot successfuly gets to `S00unlock` and `S02usbscripts`) You can put extra scripts to
 USB disk, attach it and get them executed by `S01usbscripts`. Sample scripts:
 
 * [`XS02break`](usbdisk/init.d/XS02break) - stop boot, allow login as `root` or `creality` login.
