@@ -1,0 +1,6 @@
+#!/bin/sh
+[ "$1" == 'start' ] || exit 0
+
+cp /usr/apps/etc/S02usbscripts /tmp
+
+exit 0

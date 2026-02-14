@@ -1,0 +1,11 @@
+#!/bin/sh
+[ "$1" == 'start' ] || exit 0
+
+chown root:root /dev/null
+chmod o-w /dev/mmcblk0p2
+chmod 0755 /dev
+mv /sbin/halt /sbin/halt.renamed
+mount -o remount,ro /usr/apps
+mount -o remount,ro /usr/data
+
+exit 0
