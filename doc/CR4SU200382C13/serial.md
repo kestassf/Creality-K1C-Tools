@@ -1,5 +1,5 @@
-Serial interface on the board is available on GND/RX2/TX2 connector in the center of the board: 3.3V UART, 3Mbps (3Mhz), 8-bit, parity none, 1 stop bit, lsb-first.
-Used PL2303 USB-to-serial converter. No changes needed to get a login prompt. To be able to login You need to fix `/tmp/shadow` file.
+Serial interface on the board is available on GND/RX2/TX2 connector in the center of the board: **3.3V** UART, 3Mbps (3Mhz), 8-bit, parity none, 1 stop bit, lsb-first.
+Used PL2303TA USB-to-serial converter. No changes needed to get a login prompt. To be able to login You need to fix `/tmp/shadow` file.
 
 
 ```
