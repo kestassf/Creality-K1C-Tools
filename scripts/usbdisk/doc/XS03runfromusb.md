@@ -9,6 +9,12 @@ Partiton and format USB
 * /dev/sda3 - ext4 for apps
 * /dev/sda4 - ext4 for data
 
+> [!WARNING]
+> make sure not to use unsuported ext4 features, when creating filesystems
+> (attach USB to rooted printer and format /dev/sda2,3,4 there).
+> Had USB filesystem corruption twice on different USB drives, currently it
+> is the most likely reason.
+
 Mount `sda1` create `init.d` and copy `XS03runfromusb` to `./init.d/XS03runfromusb`
 
 Mount `sda2,3,4` and copy content of squashfs and ext4 partitions there (either use OTA-Parser,
