@@ -73,7 +73,7 @@ Number  Start (sector)    End (sector)  Size Name
 ```
 
 - First 1MB of MMC contains GPT table, u-Boot SPL (encrypted), u-Boot (encrypted)
-- `ota` - ???
+- `ota` - likely unused. V1.0.0.23 `/bin/seed.sh` used it to store rootfs signature (`part_deplibs_signature_devblk` variable is still presesnt in V1.0.0.26, but not used)
 - `sn_mac` - encrypted model, board and uniq unit info
 - `rtos` - not encrypted firmware (likely video related)
 - `rtos2` - likely used by klipper (reference found in `/usr/data/printer_data/logs/klippy.log`)
@@ -137,10 +137,10 @@ Eight binaried are decrypted by `/bin/seed.sh` to `/tmp/apps` (You can download 
 
 - `alchemistp` - golang, likely responsible for most housekeeping, network communications with Creality at `api.crealitycloud.com`, etc.
 - `mdns` - multicast DNS, :TODO: - no clear reason to encrypt it 
-- `nexusp` - [Moonriker](https://github.com/Arksine/moonraker) alternative implementation (?), the same API (?), likely required by `vectorp` (listens on 7125/tcp, active tcp connection with `vectorp`), reported as usable from remote Fluidd.
-- `onyxp` - :TODO:
+- `nexusp` - [Moonriker](https://github.com/Arksine/moonraker) alternative implementation (?), the same API (?), likely required by `vectorp` (listens on 7125/tcp, active tcp connection with `vectorp`), reported as usable from remote Fluidd. Controls enclosure fan.
+- `onyxp` - remote control/video related (?)
 - `quintusp` - LED on/off (if stopped - light switching from GUI has no effect), maybe something more
-- `solusp` - :TODO:
+- `solusp` - likely "AI" related (print failure detection/handling)
 - `thirteenthp` - ?is it doing anything? (startup script `CS59thirteenthp` likely has errors) video stream related
 - `vectorp` - main and biggest, responsible for GUI, likely C++ uning LVGL (https://lvgl.io/) for graphics, plaintext mqtt reporting to Creality (`mqtt.crealitycloud.com`, ...)
 
