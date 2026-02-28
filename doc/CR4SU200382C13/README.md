@@ -141,7 +141,7 @@ Eight binaried are decrypted by `/bin/seed.sh` to `/tmp/apps` (You can download 
 - `onyxp` - remote control/video related (?)
 - `quintusp` - LED on/off (if stopped - light switching from GUI has no effect), maybe something more
 - `solusp` - likely "AI" related (print failure detection/handling)
-- `thirteenthp` - ?is it doing anything? (startup script `CS59thirteenthp` likely has errors) video stream related
+- `thirteenthp` - WebRTC video stream on 8000/tcp
 - `vectorp` - main and biggest, responsible for GUI, likely C++ uning LVGL (https://lvgl.io/) for graphics, plaintext mqtt reporting to Creality (`mqtt.crealitycloud.com`, ...)
 
 Klipper is available in python bytecode (`.pyc` files), some configs are plaintext.
